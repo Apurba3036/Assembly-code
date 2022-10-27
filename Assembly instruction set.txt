@@ -1,0 +1,68 @@
+#Assembly language instructions set
+#Nazmus Sakib Apurba
+
+
+We have to assign a value in 'AH' register and then occur an interrupt to take user input or show output in assembly.
+>For  single character input we have to put '1' in AH
+>For   single character output we have to put '2' in AH
+>For   string output, put '9' in AH
+
+Then call an interrupt to happen this. Generally call  'INT 21H' for input and output.
+
+*************************** Skull *****************************************************
+.model small (Frequently used memory models are SMALL, MEDIUM,
+              COMPACT, and LARGE.)
+.stack 100h
+.data
+  ............
+ 
+ .code
+ main proc          ;function calling/ directive
+    
+    mov ax,@data   ; geeting data
+    mov ds,ax      ;initializing ds register.
+    
+    ...............
+    input:
+           instruction destination,source
+    ...............
+    when we take any input by default it is saved in al reg.
+    
+  printing new line and return carriage:
+    
+    mov ah,2
+    mov dl,10
+    int 21h
+    mov  dl,13
+    int 21h
+    
+   ............
+   output
+   ...........
+ 
+    
+ for exit:
+    mov ah,4ch   ;DOS exit function
+    int 21h
+    main endp     
+ end main        ;end main program
+*********************************************************************************************
+>To take any string we need to give $ sign
+
+> NEG is used to negate the contents of the destination
+
+>INC is used to add 1 to the contents of a register or
+ memory location and DEC subtracts 1 from a register
+ or memory location.
+
+>XCHG operation is used to exchange the contents of two
+ registers or a register and a memory location.
+
+>1 to 31 characters long and may consist of letters, digits,
+ and the special characters ? . @ _ $ %
+>EQU is used to initialized constant. We can print new line by using the constant.
+>lea is used to get string.
+>lower case is from 41h and upper case is 61h
+
+ 
+ 
