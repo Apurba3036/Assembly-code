@@ -63,6 +63,8 @@ Then call an interrupt to happen this. Generally call  'INT 21H' for input and o
 >EQU is used to initialized constant. We can print new line by using the constant.
 >lea is used to get string.
 >lower case is from 41h and upper case is 61h
-
+>    MOV AH, 2                    ; Beep the computer 
+     MOV DL, 7H
+     INT 21H
  
  
